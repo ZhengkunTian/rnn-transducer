@@ -65,7 +65,7 @@ def train(epoch, config, model, training_data, optimizer, logger, visualizer=Non
                         'AverageLoss: %.5f, Run Time:%.3f' % (epoch, process, optimizer.global_step, optimizer.lr,
                                                               grad_norm, loss.item(), avg_loss, end-start))
 
-        break
+        # break
     end_epoch = time.process_time()
     logger.info('-Training-Epoch:%d, Average Loss: %.5f, Epoch Time: %.3f' %
                 (epoch, total_loss / (step+1), end_epoch-start_epoch))
