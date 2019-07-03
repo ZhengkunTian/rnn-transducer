@@ -1,0 +1,59 @@
+units_type: character
+feature_source: kaldi
+feature_type: mfcc
+data:
+    name: aishell
+    vocab: egs/aishell/data/vocab
+    left_context_width: 3
+    right_context_width: 0
+    frame_rate: 30
+    apply_cmvn: True
+    max_input_length: 500
+    max_target_length: 50
+    batch_size: 8
+    encoding: True
+    short_first: True
+    shuffle: False
+    text_flag: text.char
+    train: egs/aishell/data/train
+    dev: egs/aishell/data/dev
+    test: egs/aishell/data/test
+model:
+    type: transducer
+    enc:
+        type: lstm
+        hidden_size: 320
+        output_size: 320
+        n_layers: 4
+        bidirectional: True
+    dec:
+        type: lstm
+        hidden_size: 512
+        output_size: 320
+        n_layers: 1
+    joint:
+        input_size: 640
+        inner_size: 512
+    vocab_size: 4232
+    share_weight: False
+    feature_dim: 160
+    dropout: 0.3
+training:
+    load_model: False
+    load_encoder: False
+    load_decoder: False
+    eval_or_not: True
+    seed: 2019
+    num_gpu: 1
+    epochs: 60
+    max_grad_norm: 200
+    visualization: True
+    show_interval: 10
+    save_model: 4blstm_320henc_1l512dec
+optim:
+    type: sgd
+    lr: 0.0001
+    momentum: 0.9
+    decay_ratio: 0.5
+    weight_decay: 0
+    begin_to_adjust_lr: 10
