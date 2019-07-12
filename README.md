@@ -33,9 +33,10 @@ model:
     dropout: 0.2
 ```
 All experiments are conducted on AISHELL-1. During decoding, we use beam search with width of 5 for all the experiments. A character-level 5-gram language model from training text, is integrated into beam searching by shallow fusion. 
-MODEL | DEV(CER) | TEST(CER)
- :---: | :---:|:---:
-RNNT+pretrain+LM | 10.13 | 11.82
+
+| MODEL | DEV(CER) | TEST(CER) |
+|:---: | :---:|:---: |
+| RNNT+pretrain+LM | 10.13 | 11.82 |
 
 ## Acknowledge
 Thanks to [warp-transducer](https://github.com/HawkAaron/warp-transducer).
