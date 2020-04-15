@@ -114,12 +114,12 @@ class AudioDataset(Dataset):
         super(AudioDataset, self).__init__(config, type)
 
         self.config = config
-        self.text = os.path.join(config.__getattr__(type), config.text_flag)
+        self.text = os.path.join(config.__getattr__(type), 'text')
 
         self.short_first = config.short_first
 
-        if self.config.encoding:
-            self.unit2idx = self.get_vocab_map()
+        # if self.config.encoding:
+        self.unit2idx = self.get_vocab_map()
         self.targets_dict = self.get_targets_dict()
 
         if self.short_first and type == 'train':
@@ -179,10 +179,10 @@ class AudioDataset(Dataset):
                 contents = parts[1:]
                 if len(contents) < 0 or len(contents) > self.max_target_length:
                     continue
-                if self.config.encoding:
-                    labels = self.encode(contents)
-                else:
-                    labels = [int(i) for i in contents]
+                # if self.config.encoding:
+                labels = self.encode(contents)
+                # else:
+                #     labels = [int(i) for i in contents]
                 targets_dict[utt_id] = labels
         return targets_dict
 
