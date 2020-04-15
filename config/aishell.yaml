@@ -11,10 +11,8 @@ data:
     max_input_length: 500
     max_target_length: 50
     batch_size: 8
-    encoding: True
     short_first: True
     shuffle: False
-    text_flag: text.char
     train: egs/aishell/data/train
     dev: egs/aishell/data/dev
     test: egs/aishell/data/test
