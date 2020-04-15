@@ -8,9 +8,15 @@ A Pytorch Implementation of Transducer Model for End-to-End Speech Recognition.
 - warp-transducer
 
 ## Preparation
-We utilize Kaldi for data preparation. At least these files(text, feats.scp) should be included in the training/devolopment/test set. If you apply cmvn, utt2spk and cmvn.scp are required. The format of thess file is consistent with Kaidi.
+We utilize Kaldi for data preparation. At least these files(text, feats.scp) should be included in the training/devolopment/test set. If you apply cmvn, utt2spk and cmvn.scp are required. The format of thess file is consistent with Kaidi. The format of vocab should include '<blk>'.
 
-
+```
+<blk> 0
+<unk> 1
+我 2
+你 3
+...
+```
 ## Train
 ```python
 python train.py -config config/aishell.yaml
