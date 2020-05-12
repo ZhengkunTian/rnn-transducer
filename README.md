@@ -1,6 +1,7 @@
 # RNN-Transducer
 A Pytorch Implementation of Transducer Model for End-to-End Speech Recognition. 
 
+**If you have any questions, please email to me!**
 **Email**: zhengkun.tian@nlpr.ia.ac.cn
 
 # Environment
