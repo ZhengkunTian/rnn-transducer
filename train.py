@@ -137,7 +137,7 @@ def main():
         shuffle=config.data.shuffle, num_workers=num_workers)
     logger.info('Load Train Set!')
 
-    dev_dataset = AudioDataset(config.data, 'train')
+    dev_dataset = AudioDataset(config.data, 'dev')
     validate_data = torch.utils.data.DataLoader(
         dev_dataset, batch_size=config.data.batch_size * config.training.num_gpu,
         shuffle=False, num_workers=num_workers)
